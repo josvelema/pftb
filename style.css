@@ -1,8 +1,8 @@
-* {
+/* * {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
   font-size: 16px;
-}
+} */
 
 /* body {
   margin: 0;
@@ -41,27 +41,27 @@
 .content .right {
   min-width: 300px;
 } */
-
+/* 
 .newsletter .newsletter-container {
   position: relative;
   display: flex;
   flex-flow: column;
   padding: 20px;
-  background-color: #f4f5f8;
+  background-color: var(--gray);
   width: 100%;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-}
+} */
 
-.newsletter .newsletter-container h3 {
+/* .newsletter .newsletter-container h3 {
   font-size: 18px;
   font-weight: 500;
   margin: 0;
   padding: 10px 0 10px;
-  color: #4d5561;
-}
-
+  color: var(--green-dark);
+} */
+/* 
 .newsletter .newsletter-container h3 i {
   display: inline-flex;
   justify-content: center;
@@ -69,17 +69,14 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #4d5561;
-  color: #fff;
+  background-color: var(--green-dark);
+  color: var(--green-yellow-white);
   margin-right: 10px;
+  padding: 20px;
 }
 
 .newsletter .newsletter-container p {
-  margin: 0;
-  font-size: 16px;
-  padding: 10px 0;
-  color: #8d9092;
-  text-align: center;
+padding: 0.25em ;
 }
 
 .newsletter .newsletter-container form {
@@ -95,37 +92,44 @@
   border: 0;
   outline: none;
   margin-bottom: 15px;
-  text-align: center;
+  
   height: 40px;
   border-radius: 4px;
 }
 
 .newsletter .newsletter-container form input::placeholder {
-  color: #8d9092;
+  color: #515a50;
 }
 
-.newsletter .newsletter-container form button {
+.newsletter .newsletter-container form button,
+.btn {
   width: 100%;
   padding: 10px;
   appearance: none;
-  background-color: #4d5561;
+  background-color: var(--green-dark);
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--green-yellow-white);
   border: 0;
   cursor: pointer;
   height: 40px;
   border-radius: 4px;
 }
 
-.newsletter .newsletter-container form button:hover {
-  background-color: #424953;
+.newsletter .newsletter-container form button:hover, 
+.newsletter .newsletter-container form button:focus,
+.newsletter .newsletter-container form button:focus-visible{
+  background-color: var(--green-dark);
+  opacity: 0.8;
+  outline: 2px solid var(--green-dark);
+  outline-offset: 3px;
 }
 
 .newsletter .newsletter-container .newsletter-msg {
-  padding: 5px 0;
+	padding: 5px 0;
+	border: 1px solid #0003;
+	border-radius: 3px;
 }
-
 .newsletter-popup {
   display: none;
   justify-content: center;
@@ -145,7 +149,7 @@
   display: flex;
   flex-flow: column;
   padding: 30px;
-  background-color: #fff;
+  background-color: var(--green-yellow-white);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   width: 500px;
   transform: scale(0.3);
@@ -161,7 +165,7 @@
   font-weight: 500;
   margin: 0;
   padding: 10px 0 10px;
-  color: #4d5561;
+  color: var(--green-dark);
 }
 
 .newsletter-popup .newsletter-container h3 i {
@@ -171,8 +175,8 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: #4d5561;
-  color: #fff;
+  background-color: var(--green-dark);
+  color: var(--green-yellow-white);
   margin-right: 10px;
 }
 
@@ -201,10 +205,10 @@
 .newsletter-popup .newsletter-container form button {
   width: 200px;
   appearance: none;
-  background-color: #4d5561;
+  background-color: var(--green-dark);
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--green-yellow-white);
   border: 0;
   cursor: pointer;
 }
@@ -256,7 +260,7 @@
 }
 
 .send-newsletter-form {
-  background-color: #fff;
+  background-color: var(--green-yellow-white);
   width: 500px;
   margin: 0 auto;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
@@ -321,7 +325,7 @@
   border: 0;
   background-color: #cb5f51;
   font-weight: bold;
-  color: #fff;
+  color: var(--green-yellow-white);
   cursor: pointer;
   width: 100%;
 }
@@ -372,4 +376,4 @@
 
 .send-newsletter-form .multi-select-list label:last-child {
   border-bottom: 0;
-}
+} */

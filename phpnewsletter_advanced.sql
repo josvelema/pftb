@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `phpnewsletter` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `phpnewsletter`;
-
 CREATE TABLE IF NOT EXISTS `accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
