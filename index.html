@@ -10,14 +10,47 @@
         <link rel="stylesheet" href="assets/jostyle.css">
 	</head>
 	<body>
-	    <nav>
-	    	<ul>
-                <li>About</li>
-                <li>Books</li>
-                <li>Workshop</li>
-                <li>Contact</li>
-            </ul>
-	    </nav>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="/" class="logo-link" aria-label="Go to homepage">
+  Home
+      </a>
+
+      <div class="nav-wrapper">
+
+        <button class="btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open mobile navigation">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25" stroke="currentColor" class="w-6 h-6" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>
+        </button>
+          <ul class="nav-links" id="menu" role="menubar">
+
+            <li role="none">
+              <a href="/" class="nav-link" role="menuitem" aria-current="page"> Home</a>
+            </li>
+            <li role="none">
+              <a href="#books" class="nav-link" role="menuitem">Books</a>
+            </li>
+            <li role="none">
+              <a href="#workshops" class="nav-link" role="menuitem">Workshops</a>
+            </li>
+            
+            <!-- <li role="none">
+              <a href="#examples" class="nav-link" role="menuitem">Biography</a>
+            </li> -->
+            <li role="none">
+              <a href="#bio" class="nav-link" role="menuitem">Biography</a>
+            </li>
+          </ul>
+
+
+      </div>
+
+    </div>
+  </nav>
+
         <div class="bg-wrapper">
             <header class="container main-header">
                 <h1>
@@ -36,14 +69,26 @@
 
 			<section class="container hero-section">
                 <article class="introduction">
-                    <p>
-                        <strong><em>‘A painting is like a programme for the viewing machine in our brain.’</em></strong> <br>
-                        <span class="first-letter">such </span>is the main postulation from which Pieter Adriaans, 
-                        painter and Professor of Information Technology at the University of Amsterdam, is developing a new vision on the art of painting.
-                        Our brain constructs an image of reality, based on a limited amount of information supplied by our eyes.
-                        The painter uses this fact. Recent insights from neurobiology, information technology and mathematics can teach us a new way of viewing the world.
-                        This is a book for all viewers, teachers, critics, amateurs and professionals interested in the art of painting.
-                    </p>
+                    <div>
+                        <p>
+                            ‘A painting is like a programme for the viewing machine in our brain.’</em></strong>
+                        </p>
+                        <p>
+                            Such is the main postulation from which Pieter Adriaans,
+                            painter and Professor of Information Technology at the University of Amsterdam, is developing a new vision on the art of painting.
+                            </p>
+                            <p>
+                                Our brain constructs an image of reality, based on a limited amount of information supplied by our eyes.
+                                The painter uses this fact. Recent insights from neurobiology, information technology and mathematics can teach us a new way of viewing the world.
+                            </p>
+                        </div>
+                        <div class="introduction-flex">
+                            <p>
+                                This is a book for all viewers, teachers, critics, amateurs and professionals interested in the art of painting.
+                            </p>
+                            
+                            <img src="assets/img/pftbCover.png" alt="Book Cover">
+                        </div>
                 </article>
 
                 <div class="smol-flexbox-grid flex-main ">
@@ -76,42 +121,36 @@
             </div>
             <section class="container">
                 <article class="about">
-                    <p>
-                        Creating a balance between art, science, and business, that has been the lifelong ambition of philosopher/painter/entrepreneur Pieter Adriaans.
-                        Art, because it is, apart from love, one of the richest fulfillments life can offer, science because we have an innate urge to understand the
-                        world around us, and business because one needs a sound basis to chase one’s dreams.
+                    <p class="about-introduction">
+                        Creating a balance between art, science and business, that has been the lifelong ambition of philosopher/painter/entrepreneur Pieter Adriaans. Art, because it is, apart from love, one of the richest fulfillments life can offer, science because we have an innate urge to understand the world around us, and business because one needs a sound basis to chase one’s dreams.
                     </p>
 
-                    <p>
-                        Pieter Willem Adriaans (1955) grew up in Holland in the sixties and in his early teens got caught in the turmoil of the emerging counterculture
-                        that raged through the complacent Dutch society of the time. This experience is documented in his work and has been a continuous inspiration ever since.
-                        At the age of fourteen he decided that enough was enough, the fun was over, and it was time to get proper schooling and seriously work on his skills as an artist.
-                        One lucky day, a year later, he met his future spouse Rini and asked her to marry him at the same evening. They have been together for more than fifty years.
-                    </p>
+                    <div class="about-columns">
+    
+                       
+                        <p>
+                            Pieter Willem Adriaans (1955) grew up in Holland in the sixties and in his early teens got caught in the turmoil of the emerging counterculture that raged through the complacent Dutch society of the time. This experience is documented in his work and has been a continuous inspiration ever since. At the age of fourteen he decided that enough was enough, the fun was over, and it was time to get proper schooling and seriously work on his skills as an artist. One lucky day, a year later, he met his future spouse Rini and asked her to marry him that same evening. They have been together for more than fifty years. 
+                        </p>
+    
+                        <p>
+                            Forsaking official art school, because it had little to offer for his ambitions as a figurative painter, he studied analytical philosophy and (some) mathematics for seven years at Leiden university.
 
-                    <p>
-                        Forsaking official art school, because it had little to offer for his ambitions as a figurative painter, he studied analytical philosophy
-                        and (some) mathematics for seven years at Leiden university. He started a career in the software business and founded his own company Syllogic,
-                        with partner Dolf Zantinge, in the early nineties. At the same time, he wrote a thesis on machine learning and obtained a PhD in
-                        theoretical computer science at the university of Amsterdam. Syllogic developed into one of the leading companies in Artificial Intelligence and
-                        data mining in the world and was sold to Perot systems by the end of the decade. Based on these achievements, Pieter was offered a chair in
-                        Artificial Intelligence at the university of Amsterdam, which he held until his retirement from university in 2021.
-                    </p>
+                            He started a career in the software business and founded his own company Syllogic with partner Dolf Zantinge in the early nineties. At the same time, he wrote a thesis on machine learning and obtained a PhD in theoretical computer science at the university of Amsterdam. Syllogic developed into one of the leading companies in Artificial Intelligence and data mining in the world and was sold to Perot systems by the end of the decade. Based on these achievements, Pieter was offered a chair in Artificial Intelligence at the university of Amsterdam, which he held until his retirement from university in 2021. 
+                        </p>
+    
+                        <p>
+                            At the turn of the century while making a single-handed crossing over the Atlantic Ocean in his yacht the Syllogic Sailing lab, Pieter got caught in a storm that forced him to retire to the port of Horta at the Azores. Both he and Rini, who flew into Horta to assist him with the repairs, fell in love with the islands and decided to buy a house in the village of Manadas on the island of São Jorge. The isolated society of the islands, with its rich history and astonishing nature has been a constant inspiration ever since. 
+                        </p>
+    
+                        <p>
+                            Over the next two decades Pieter honed his skills as a painter and a philosopher. He became one of the world’s leading experts on philosophy of information. He used information theory to study human cognition and creativity. In his studio in Santo Antonio he conducted extensive research into innovative techniques for drawing and painting. In 2013 he published a book ‘Painting for the brain’ that explained his findings for a lay audience. 
+                        </p>
+                    </div>
+                    
+                        <div class="about-footer">
+                            <p>Currently Pieter and Rini live on the Azores where they run an art restaurant, Manezinho, and a cultural center, Atelier de Kaasfabriek. Here he continues his work as a painter, philosopher, and teacher.</p>     
+                        </div>
 
-                    <p>
-                        At the turn of the century while making a single-handed crossing over the Atlantic Ocean in his yacht the Syllogic Sailing lab,
-                        Pieter got caught in a storm that forced him to retire to the port of Horta at the Azores. Both he and Rini, who flew into Horta
-                        to assist him with the repairs, fell in love with the islands and decided to buy a house in the village of Manadas on the island of São Jorge.
-                        The isolated society of the islands, with its rich history and astonishing nature has been a constant inspiration ever since.
-                    </p>
-
-                    <p>
-                        Over the next two decades Pieter honed his skills as a painter and a philosopher. He became one of the world’s leading experts on philosophy of information.
-                        He used information theory to study human cognition and creativity. In his studio in Santo Antonio he conducted extensive research into innovative techniques for drawing and painting.
-                        In 2013 he published a book ‘Painting for the brain’ that explained his findings for a lay audience.
-                    </p>
-
-                    <p>Currently Pieter and Rini live on the Azores where they run an art restaurant, Manezinho, and a cultural center, Atelier de Kaasfabriek. Here he continues his work as a painter, philosopher, and teacher.</p>     
                 </article>
             </section>
 		</>
@@ -123,6 +162,58 @@
             title: 'Subscribe To Our Newsletter',
             trigger_position: 200 // How far down in pixels until the popup is triggered
         });
+
+        const navBtn = document.querySelector("#menu-btn");
+const nav = document.querySelector("nav");
+const navLinks = document.querySelector(".nav-links");
+const navLink = document.querySelectorAll(".nav-link");
+
+
+// active page
+navLink.forEach(link => {
+  console.log((link.href , window.location.href));
+  if(link.href === window.location.href) {
+    link.setAttribute('aria-current', 'page')
+  };
+})
+
+// --
+
+navBtn.addEventListener('click' , () => {
+  navLinks.classList.add('activated')
+  const isExpanded = JSON.parse(navBtn.getAttribute('aria-expanded'));
+  navBtn.setAttribute('aria-expanded' , !isExpanded);
+
+  !isExpanded && nav.classList.add('active')
+
+})
+
+// window.addEventListener('DOMContentLoaded', () => {
+// })
+
+
+// INTERSECTION OBSERVERS
+const navObserver = new IntersectionObserver((watchEntry) => {
+  !watchEntry[0].isIntersecting ? nav.classList.add('active') : nav.classList.remove('active');
+}, {threshold: 0.85});
+
+navObserver.observe(document.querySelector('header'));
+
+const fadeUpObserver = new IntersectionObserver((elsToWatch) => {
+  elsToWatch.forEach((el) => {
+    if (el.isIntersecting) {
+      el.target.classList.add('faded');
+      fadeUpObserver.unobserve(el.target);
+    }
+  });
+}, {threshold: 0.25});
+
+document.querySelectorAll('.fade-up').forEach((item) => {
+  fadeUpObserver.observe(item);
+});
+
+
+  
         </script>
 
     </body>
