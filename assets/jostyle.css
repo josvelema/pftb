@@ -28,7 +28,7 @@
 --green-yellow: hsl(67, 89%, 45%);
 --green-yellow-white: hsl(50, 25%, 93%);
 /* --green-yellow-white: hsl(55, 80%, 85%); */
---gray: hsla(68, 4%, 83%, 0.72);
+--gray: hsla(68, 3%, 83%, 0.72);
 --green-yellow-shade: hsl(58, 78%, 15%);
 }
 
@@ -42,7 +42,7 @@
   font-family: "Futura-Heavy";
   src: url('assets/fonts/futura sv/Futura Std Book.ttf') format('truetype');
   font-weight: 600;
-  font-style: bolder;
+  font-style: normal;
 }
 @font-face {
   font-family: "Futura-Round";
@@ -71,17 +71,28 @@
 }
 
 html {
-  font-size: 67, 5%;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  
 }
 
 body {
-	font-weight: 500;
-	font-family: 'EB Garamond', 'Times New Roman', Times, serif;
+  font-family: 'EB Garamond', 'Times New Roman', Times, serif;
+  font-weight: normal;
 	letter-spacing: 0.01em;
 }
 
+h1, h2, h3, h3 > a, p, li {
+  /* font-family: 'geo-light', sans-serif; */
+  font-weight: normal;
+  font-style: normal; 
+  /* text-decoration: none; */
+}
 
 body > * {
+  /* font-weight: 600; */
+  color: #000;
   width: min(100%, var(--max-width));
   margin-left: auto;
   margin-right: auto;
@@ -99,7 +110,7 @@ nav {
   font-size: 1.5rem;
 }
 nav .nav-container .nav-wrapper .nav-links a {
-	font-size: 1.35rem;
+	font-size: 1.15rem;
 	font-weight: 600;
 	letter-spacing: 0.075em;
 	padding-right: 0.33em;
@@ -119,7 +130,7 @@ nav.active .nav-container .nav-wrapper .nav-links a {
   align-items: center;
 }
 
-.logo {
+/* .logo {
   color: var(--accent);
   margin-inline: 0.5rem;
   width: clamp(3rem, 10vw , 7.5rem);
@@ -132,7 +143,7 @@ nav.active .nav-container .nav-wrapper .nav-links a {
   outline: 4px solid var(--accent);
   outline-offset: 0.2em;
   border-radius: 0.5rem;
-}
+} */
 
 .nav-links {
   display: flex;
@@ -146,8 +157,8 @@ nav.active .nav-container .nav-wrapper .nav-links a {
   left: 0;
   right: 0;
   background-color:  var(--green-yellow-white);
-  padding: 1.5rem;
-  border-bottom: 3px solid var(--accent);
+  padding: 2.5rem;
+  border-bottom: 3px solid var(--green-dark);
   text-align: center;
 
 }
@@ -171,12 +182,14 @@ nav.active .nav-container .nav-wrapper .nav-links a {
 }
 
 .btn--menu {
-  color: var(--accent);
-  background-color: transparent;
-  border: none;
+  color: var(--green-dark);
+ 
+  background-color: #fff8;
+  border: 1px solid var(--green-dark);
   display: grid;
   place-items: center;
-  padding-inline: 1rem;
+  padding: 4px;
+  border-radius: 3px;
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.84);
 
 }
@@ -483,7 +496,7 @@ border-radius: 3px;
 }
 
 blockquote {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   width: min(100%, 55ch);
   font-style: italic;
   letter-spacing: 0.025em;
@@ -505,7 +518,7 @@ blockquote::before {
   font-family: Arial;
   content: "\201C";
   color: var(--green-dark);
-  font-size: 4em;
+  font-size: 4rem;
   position: absolute;
   left: 10px;
   top: -10px;
@@ -695,7 +708,7 @@ padding: 0.25em ;
   appearance: none;
   background-color: var(--green-dark);
   font-weight: 500;
-  font-size: 14px;
+  /* font-size: 14px; */
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--green-yellow-white);

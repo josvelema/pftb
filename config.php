@@ -13,11 +13,17 @@ define('db_charset','utf8');
 define('website_url','http://localhost/newsletter/');
 // email confirmation
 define('email_confirmation',true);
+// Review images directory
+define('file_upload_directory', 'uploads/');
+// Maximum allowed upload file size (500KB)
+define('max_allowed_upload_file_size', 512000);
 /* Mail */
 // Send mail from which address?
 define('mail_from','newsletters@example.com');
 // Mail from name
 define('mail_from_name','Your Business Name');
+// Where should we send the contact form mail?
+define('support_email', 'support@yourwebsite.com');
 // Is SMTP server?
 define('SMTP',false);
 // SMTP Hostname

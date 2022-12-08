@@ -34,8 +34,16 @@ function color_from_string($string) {
 }
 // Template admin header
 function template_admin_header($title, $selected = 'orders', $selected_child = 'view') {
+    //! msg
+    global $pdo;
+    // Retrieve the total number of unread messages
+    $stmt = $pdo->prepare('SELECT COUNT(*) AS total FROM messages WHERE is_read = 0');
+    $stmt->execute();
+    $unread_messages = $stmt->fetchColumn();
+    //!msg + line 46
     $admin_links = '
         <a href="index.php"' . ($selected == 'dashboard' ? ' class="selected"' : '') . '><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        <a href="messages.php"' . ($selected == 'messages' ? ' class="selected"' : '') . '><i class="fas fa-inbox"></i>Messages<span>' . $unread_messages . '</span></a>
         <a href="campaigns.php"' . ($selected == 'campaigns' ? ' class="selected"' : '') . '><i class="fa-solid fa-list"></i>Campaigns</a>
         <div class="sub">
             <a href="campaigns.php"' . ($selected == 'campaigns' && $selected_child == 'view' ? ' class="selected"' : '') . '><span>&#9724;</span>View Campaigns</a>

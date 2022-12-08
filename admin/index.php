@@ -26,8 +26,30 @@ $stmt = $pdo->prepare('SELECT
 $stmt->execute();
 // Retrieve query results
 $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Retrieve all messages
+$stmt = $pdo->prepare('SELECT * FROM messages WHERE cast(submit_date as DATE) = cast(now() as DATE) ORDER BY submit_date DESC');
+$stmt->execute();
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Retrieve the average messages per day
+$stmt = $pdo->prepare('SELECT count(*) * 1.0 / count(DISTINCT cast(submit_date as DATE)) FROM messages');
+$stmt->execute();
+$messages_average_per_day = $stmt->fetchColumn();
+// Retrieve the total number of unique emails
+$stmt = $pdo->prepare('SELECT count(DISTINCT email) AS total FROM messages');
+$stmt->execute();
+$total_unique_emails = $stmt->fetchColumn();
+// Get the total number of messages
+$stmt = $pdo->prepare('SELECT COUNT(*) AS total FROM messages');
+$stmt->execute();
+$messages_total = $stmt->fetchColumn();
+// Get the total number of unread messages
+$stmt = $pdo->prepare('SELECT COUNT(*) AS total FROM messages WHERE is_read = 0');
+$stmt->execute();
+$unread_messages_total = $stmt->fetchColumn();
+
 ?>
-<?=template_admin_header('Dashboard', 'dashboard')?>
+<?= template_admin_header('Dashboard', 'dashboard') ?>
 
 <div class="content-title">
     <h2>Dashboard</h2>
@@ -37,7 +59,7 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="content-block stat">
         <div class="data">
             <h3>New Subscribers</h3>
-            <p><?=number_format(count($subscribers))?></p>
+            <p><?= number_format(count($subscribers)) ?></p>
         </div>
         <i class="fa-solid fa-user-clock"></i>
         <div class="footer">
@@ -48,7 +70,7 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="content-block stat">
         <div class="data">
             <h3>Total Subscribers</h3>
-            <p><?=number_format($subscribers_total)?></p>
+            <p><?= number_format($subscribers_total) ?></p>
         </div>
         <i class="fa-solid fa-users"></i>
         <div class="footer">
@@ -59,7 +81,7 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="content-block stat">
         <div class="data">
             <h3>Active Campaigns</h3>
-            <p><?=number_format(count($campaigns))?></p>
+            <p><?= number_format(count($campaigns)) ?></p>
         </div>
         <i class="fa-solid fa-list"></i>
         <div class="footer">
@@ -70,7 +92,7 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="content-block stat">
         <div class="data">
             <h3>Total Newsletters</h3>
-            <p><?=number_format($newsletters_total)?></p>
+            <p><?= number_format($newsletters_total) ?></p>
         </div>
         <i class="fas fa-envelope"></i>
         <div class="footer">
@@ -100,89 +122,89 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             </thead>
             <tbody>
-                <?php if (empty($campaigns)): ?>
-                <tr>
-                    <td colspan="10" style="text-align:center;">There are no active campaigns</td>
-                </tr>
-                <?php else: ?>
-                <?php foreach ($campaigns as $campaign): ?>
-                <tr>
-                    <td><?=htmlspecialchars($campaign['title'], ENT_QUOTES)?></td>
-                    <td>
-                        <div class="progress">
-                            <span class="txt"><?=$campaign['total_completed_items']?> of <?=$campaign['total_items']?></span>
-                            <div class="bot">
-                                <span class="per"><?=$campaign['total_items'] ? number_format(($campaign['total_completed_items'] * 100) / $campaign['total_items']) : 0?>%</span>
-                                <div class="bar">
-                                    <span style="width:<?=$campaign['total_items'] ? ($campaign['total_completed_items'] * 100) / $campaign['total_items'] : 0?>%"></span>
+                <?php if (empty($campaigns)) : ?>
+                    <tr>
+                        <td colspan="10" style="text-align:center;">There are no active campaigns</td>
+                    </tr>
+                <?php else : ?>
+                    <?php foreach ($campaigns as $campaign) : ?>
+                        <tr>
+                            <td><?= htmlspecialchars($campaign['title'], ENT_QUOTES) ?></td>
+                            <td>
+                                <div class="progress">
+                                    <span class="txt"><?= $campaign['total_completed_items'] ?> of <?= $campaign['total_items'] ?></span>
+                                    <div class="bot">
+                                        <span class="per"><?= $campaign['total_items'] ? number_format(($campaign['total_completed_items'] * 100) / $campaign['total_items']) : 0 ?>%</span>
+                                        <div class="bar">
+                                            <span style="width:<?= $campaign['total_items'] ? ($campaign['total_completed_items'] * 100) / $campaign['total_items'] : 0 ?>%"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="responsive-hidden">
-                        <div class="progress">
-                            <span class="txt"><?=$campaign['total_opens']?> of <?=$campaign['total_items']?></span>
-                            <div class="bot">
-                                <span class="per"><?=$campaign['total_items'] ? number_format(($campaign['total_opens'] * 100) / $campaign['total_items']) : 0?>%</span>
-                                <div class="bar">
-                                    <span style="width:<?=$campaign['total_items'] ? ($campaign['total_opens'] * 100) / $campaign['total_items'] : 0?>%"></span>
+                            </td>
+                            <td class="responsive-hidden">
+                                <div class="progress">
+                                    <span class="txt"><?= $campaign['total_opens'] ?> of <?= $campaign['total_items'] ?></span>
+                                    <div class="bot">
+                                        <span class="per"><?= $campaign['total_items'] ? number_format(($campaign['total_opens'] * 100) / $campaign['total_items']) : 0 ?>%</span>
+                                        <div class="bar">
+                                            <span style="width:<?= $campaign['total_items'] ? ($campaign['total_opens'] * 100) / $campaign['total_items'] : 0 ?>%"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="responsive-hidden">
-                        <div class="progress">
-                            <span class="txt"><?=$campaign['total_clicks']?> of <?=$campaign['total_items']?></span>
-                            <div class="bot">
-                                <span class="per"><?=$campaign['total_items'] ? number_format(($campaign['total_clicks'] * 100) / $campaign['total_items']) : 0?>%</span>
-                                <div class="bar">
-                                    <span style="width:<?=$campaign['total_items'] ? ($campaign['total_clicks'] * 100) / $campaign['total_items'] : 0?>%"></span>
+                            </td>
+                            <td class="responsive-hidden">
+                                <div class="progress">
+                                    <span class="txt"><?= $campaign['total_clicks'] ?> of <?= $campaign['total_items'] ?></span>
+                                    <div class="bot">
+                                        <span class="per"><?= $campaign['total_items'] ? number_format(($campaign['total_clicks'] * 100) / $campaign['total_items']) : 0 ?>%</span>
+                                        <div class="bar">
+                                            <span style="width:<?= $campaign['total_items'] ? ($campaign['total_clicks'] * 100) / $campaign['total_items'] : 0 ?>%"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="responsive-hidden">
-                        <div class="progress">
-                            <span class="txt"><?=$campaign['total_failed_items']?> of <?=$campaign['total_items']?></span>
-                            <div class="bot">
-                                <span class="per"><?=$campaign['total_items'] ? number_format(($campaign['total_failed_items'] * 100) / $campaign['total_items']) : 0?>%</span>
-                                <div class="bar">
-                                    <span class="red" style="width:<?=$campaign['total_items'] ? ($campaign['total_failed_items'] * 100) / $campaign['total_items'] : 0?>%"></span>
+                            </td>
+                            <td class="responsive-hidden">
+                                <div class="progress">
+                                    <span class="txt"><?= $campaign['total_failed_items'] ?> of <?= $campaign['total_items'] ?></span>
+                                    <div class="bot">
+                                        <span class="per"><?= $campaign['total_items'] ? number_format(($campaign['total_failed_items'] * 100) / $campaign['total_items']) : 0 ?>%</span>
+                                        <div class="bar">
+                                            <span class="red" style="width:<?= $campaign['total_items'] ? ($campaign['total_failed_items'] * 100) / $campaign['total_items'] : 0 ?>%"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="responsive-hidden">
-                        <div class="progress">
-                            <span class="txt"><?=$campaign['total_unsubscribes']?> of <?=$campaign['total_items']?></span>
-                            <div class="bot">
-                                <span class="per"><?=$campaign['total_items'] ? number_format(($campaign['total_unsubscribes'] * 100) / $campaign['total_items']) : 0?>%</span>
-                                <div class="bar">
-                                    <span class="red" style="width:<?=$campaign['total_items'] ? ($campaign['total_unsubscribes'] * 100) / $campaign['total_items'] : 0?>%"></span>
+                            </td>
+                            <td class="responsive-hidden">
+                                <div class="progress">
+                                    <span class="txt"><?= $campaign['total_unsubscribes'] ?> of <?= $campaign['total_items'] ?></span>
+                                    <div class="bot">
+                                        <span class="per"><?= $campaign['total_items'] ? number_format(($campaign['total_unsubscribes'] * 100) / $campaign['total_items']) : 0 ?>%</span>
+                                        <div class="bar">
+                                            <span class="red" style="width:<?= $campaign['total_items'] ? ($campaign['total_unsubscribes'] * 100) / $campaign['total_items'] : 0 ?>%"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="status-container">
-                        <div class="status" data-id="<?=$campaign['id']?>">
-                            <span title="<?=htmlspecialchars($campaign['status'], ENT_QUOTES)?>" class="<?=strtolower(htmlspecialchars($campaign['status'], ENT_QUOTES))?>"></span>
-                            <i class="fa-solid fa-caret-down"></i>
-                            <div class="dropdown">
-                                <a href="#" data-value="Active">Active</a>
-                                <a href="#" data-value="Inactive">Inactive</a>
-                                <a href="#" data-value="Paused">Pause</a>
-                                <a href="#" data-value="Cancelled">Cancel</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><?=date('F j, Y H:ia', strtotime($campaign['submit_date']))?></td>
-                    <td>
-                        <a href="campaign_view.php?id=<?=$campaign['id']?>" class="link1">View</a>
-                        <a href="campaign.php?id=<?=$campaign['id']?>" class="link1">Edit</a>
-                        <a href="campaigns.php?delete=<?=$campaign['id']?>" class="link1" onclick="return confirm('Are you sure you want to delete this campaign?')">Delete</a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+                            </td>
+                            <td class="status-container">
+                                <div class="status" data-id="<?= $campaign['id'] ?>">
+                                    <span title="<?= htmlspecialchars($campaign['status'], ENT_QUOTES) ?>" class="<?= strtolower(htmlspecialchars($campaign['status'], ENT_QUOTES)) ?>"></span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                    <div class="dropdown">
+                                        <a href="#" data-value="Active">Active</a>
+                                        <a href="#" data-value="Inactive">Inactive</a>
+                                        <a href="#" data-value="Paused">Pause</a>
+                                        <a href="#" data-value="Cancelled">Cancel</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><?= date('F j, Y H:ia', strtotime($campaign['submit_date'])) ?></td>
+                            <td>
+                                <a href="campaign_view.php?id=<?= $campaign['id'] ?>" class="link1">View</a>
+                                <a href="campaign.php?id=<?= $campaign['id'] ?>" class="link1">Edit</a>
+                                <a href="campaigns.php?delete=<?= $campaign['id'] ?>" class="link1" onclick="return confirm('Are you sure you want to delete this campaign?')">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
@@ -208,29 +230,104 @@ $campaigns = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             </thead>
             <tbody>
-                <?php if (empty($subscribers)): ?>
-                <tr>
-                    <td colspan="8" style="text-align:center;">There are no new subscribers</td>
-                </tr>
-                <?php else: ?>
-                <?php foreach ($subscribers as $subscriber): ?>
-                <tr>
-                    <td class="img">
-                        <span style="background-color:<?=color_from_string($subscriber['email'])?>"><?=strtoupper(substr($subscriber['email'], 0, 1))?></span>
-                    </td>
-                    <td><?=htmlspecialchars($subscriber['email'], ENT_QUOTES)?></td>
-                    <td><?=$subscriber['status']?></td>
-                    <td><?=$subscriber['confirmed']?'Yes':'No'?></td>
-                    <td><?=date('F j, Y H:ia', strtotime($subscriber['date_subbed']))?></td>
-                    <td>
-                        <a href="subscriber.php?id=<?=$subscriber['id']?>" class="link1">Edit</a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+                <?php if (empty($subscribers)) : ?>
+                    <tr>
+                        <td colspan="8" style="text-align:center;">There are no new subscribers</td>
+                    </tr>
+                <?php else : ?>
+                    <?php foreach ($subscribers as $subscriber) : ?>
+                        <tr>
+                            <td class="img">
+                                <span style="background-color:<?= color_from_string($subscriber['email']) ?>"><?= strtoupper(substr($subscriber['email'], 0, 1)) ?></span>
+                            </td>
+                            <td><?= htmlspecialchars($subscriber['email'], ENT_QUOTES) ?></td>
+                            <td><?= $subscriber['status'] ?></td>
+                            <td><?= $subscriber['confirmed'] ? 'Yes' : 'No' ?></td>
+                            <td><?= date('F j, Y H:ia', strtotime($subscriber['date_subbed'])) ?></td>
+                            <td>
+                                <a href="subscriber.php?id=<?= $subscriber['id'] ?>" class="link1">Edit</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
     </div>
 </div>
 
-<?=template_admin_footer()?>
+<div class="dashboard">
+    <div class="content-block stat">
+            <div class="data">
+                <h3>Today's Messages</h3>
+                <p><?=number_format(count($messages))?></p>
+            </div>
+            <i class="fas fa-envelope-open-text"></i>
+        </div>
+    
+        <div class="content-block stat">
+            <div class="data">
+                <h3>Total Unread Messages</h3>
+                <p><?=number_format($unread_messages_total)?></p>
+            </div>
+            <i class="fas fa-envelope"></i>
+        </div>
+    
+        <div class="content-block stat">
+            <di class="data">
+                <h3>Total Messages</h3>
+                <p><?=number_format($messages_total)?></p>
+            </di>
+            <i class="fas fa-inbox"></i>
+        </div>
+    
+        <div class="content-block stat">
+            <div class="data">
+                <h3>Avg Messages Per Day</h3>
+                <p><?=number_format($messages_average_per_day, 2)?></p>
+            </div>
+            <i class="fas fa-clock"></i>
+        </div>
+    
+    </div>
+    
+    <h2>Today's Messages</h2>
+    
+    <div class="content-block">
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <td>From</td>
+                        <td>Subject</td>
+                        <td class="responsive-hidden">Message</td>
+                        <td class="responsive-hidden">Date</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (empty($messages)): ?>
+                    <tr>
+                        <td colspan="8" style="text-align:center;">There are no recent messages</td>
+                    </tr>
+                    <?php else: ?>
+                    <?php foreach ($messages as $message): ?>
+                    <tr>
+                        <td><?=$message['email']?></td>
+                        <td><?=mb_strimwidth(nl2br(htmlspecialchars($message['subject'], ENT_QUOTES)), 0, 100, '...')?></td>
+                        <td class="responsive-hidden"><?=mb_strimwidth(nl2br(htmlspecialchars($message['msg'], ENT_QUOTES)), 0, 50, '...')?></td>
+                        <td class="responsive-hidden"><?=date('F j, Y H:ia', strtotime($message['submit_date']))?></td>
+                        <td>
+                            <a href="message.php?id=<?=$message['id']?>">View</a>
+                            <a href="messages.php?delete=<?=$message['id']?>" onclick="return confirm('Are you sure you want to delete this message?');">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<?= template_admin_footer() ?>
