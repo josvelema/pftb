@@ -1,14 +1,13 @@
 <?php
-ob_start()
 session_start();
 // Namespaces
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer library
-require 'lib/phpmailer/Exception.php';
-require 'lib/phpmailer/PHPMailer.php';
-require 'lib/phpmailer/SMTP.php';
+require 'admin/lib/phpmailer/Exception.php';
+require 'admin/lib/phpmailer/PHPMailer.php';
+require 'admin/lib/phpmailer/SMTP.php';
 require 'config.php';
 
 // Create an instance; passing `true` enables exceptions
