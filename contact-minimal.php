@@ -54,8 +54,8 @@ if (isset($_POST['name'], $_POST['email'], $_POST['message'], $_POST['subject'])
                 $mail->isSMTP();
                 $mail->Host = smtp_host;
                 $mail->SMTPAuth = true;
-                $mail->Username = smtp_username;
-                $mail->Password = smtp_password;
+                // $mail->Username = smtp_username;
+                // $mail->Password = smtp_password;
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port = smtp_port;
             }

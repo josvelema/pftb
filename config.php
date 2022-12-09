@@ -17,6 +17,11 @@ define('email_confirmation',true);
 define('file_upload_directory', 'uploads/');
 // Maximum allowed upload file size (500KB)
 define('max_allowed_upload_file_size', 512000);
+// Admin credentials
+// Admin username
+define('admin_user','admin');
+// Admin password
+define('admin_pass','admin');
 /* Mail */
 // Send mail from which address?
 define('mail_from','info@codette.net');
