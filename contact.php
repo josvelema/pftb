@@ -6,8 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer library
 require 'admin/lib/phpmailer/Exception.php';
-require 'admin/lib/PHPMailer.php';
-require 'admin/lib/SMTP.php';
+require 'admin/lib/phpmailer/PHPMailer.php';
+require 'admin/lib/phpmailer/SMTP.php';
 require 'config.php';
 
 // Create an instance; passing `true` enables exceptions
@@ -92,8 +92,8 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['ca
                 $mail->isSMTP();
                 $mail->Host = smtp_host;
                 $mail->SMTPAuth = true;
-                // $mail->Username = smtp_username;
-                // $mail->Password = smtp_password;
+                $mail->Username = smtp_username;
+                $mail->Password = smtp_password;
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port = smtp_port;
             }
