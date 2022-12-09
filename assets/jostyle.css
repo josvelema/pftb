@@ -459,11 +459,31 @@ h3 {
   text-align: center;
 }
 
-.hero-grid {
+.hero-grid,
+.reviews {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(55ch, 1fr));
-  gap: 0.5em;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em;
   place-items: center;
+}
+
+.reviews blockquote {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  
+}
+
+.previews {
+margin: 0 auto;
+text-align: center
+}
+
+.previews  {
+  margin: 0 auto;
+  
+  background-color: #fff;
 }
 
 .introduction {
@@ -619,6 +639,33 @@ blockquote span {
   /* .main-header h2 {
     font-size: 2.2rem;
   } */
+}
+
+.expect {
+  background-image: linear-gradient(to bottom,rgba(233,233,233,0.83),rgba(233,233,233,0.83)), url("../assets/img/pieterGrijs.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.highlights,
+.expect-intro {
+  list-style: none;
+  max-width: 66ch;
+  margin: 0.5em auto;
+}
+
+.expect-intro p {
+  margin-bottom: 0.5em;
+}
+.highlights li{
+  border-bottom: 1px solid #5553;
+  padding-bottom: 0.5em;
+}
+
+.expect > * {
+text-align: center;
+
 }
 
 .about {
