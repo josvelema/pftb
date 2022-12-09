@@ -19,11 +19,11 @@ define('file_upload_directory', 'uploads/');
 define('max_allowed_upload_file_size', 512000);
 /* Mail */
 // Send mail from which address?
-define('mail_from','newsletters@example.com');
+define('mail_from','info@codette.net');
 // Mail from name
-define('mail_from_name','Your Business Name');
+define('mail_from_name','Pftb');
 // Where should we send the contact form mail?
-define('support_email', 'support@yourwebsite.com');
+define('support_email', 'info@codette.net');
 // Is SMTP server?
 define('SMTP',false);
 // SMTP Hostname

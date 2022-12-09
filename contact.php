@@ -5,9 +5,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer library
-require 'lib/phpmailer/Exception.php';
-require 'lib/phpmailer/PHPMailer.php';
-require 'lib/phpmailer/SMTP.php';
+require 'admin/lib/phpmailer/Exception.php';
+require 'admin/lib/PHPMailer.php';
+require 'admin/lib/SMTP.php';
 require 'config.php';
 
 // Create an instance; passing `true` enables exceptions
@@ -17,6 +17,7 @@ $mail = new PHPMailer(true);
 try {
     $pdo = new PDO('mysql:host=' . db_host . ';dbname=' . db_name . ';charset=' . db_charset, db_user, db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "connected!!!";
 } catch (PDOException $exception) {
     // If there is an error with the connection, stop the script and display the error.
     exit('Failed to connect to database!');
@@ -91,8 +92,8 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['ca
                 $mail->isSMTP();
                 $mail->Host = smtp_host;
                 $mail->SMTPAuth = true;
-                $mail->Username = smtp_username;
-                $mail->Password = smtp_password;
+                // $mail->Username = smtp_username;
+                // $mail->Password = smtp_password;
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port = smtp_port;
             }
