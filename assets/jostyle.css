@@ -737,6 +737,140 @@ text-align: center;
 
 }
 
+/* >examples
+*
+*
+* ----------------------
+*/
+
+.examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60ch, 1fr));
+
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em;
+  place-items: center;
+}
+
+.example {
+  display: flex;
+  /* padding: 0.5em */
+  margin: 0;
+  /* text-align: justify; */
+}
+
+.example span,
+.example button {
+  display: block;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.2em;
+  border-bottom: 1px solid #5555;
+  text-align: center;
+
+}
+
+.example button {
+  margin: 0 auto;
+
+}
+
+.example p  {
+  /* width: min(100%,30ch); */
+  padding: 0.33em;
+  align-self: center;
+}
+
+.example img {
+  width: 33ch;
+  object-fit: contain;
+}
+
+.ex1 {
+  animation: huerot 4s alternate infinite;
+}
+
+@keyframes huerot {
+  0% {
+    filter:saturate(100%)
+
+  }
+  100% {
+  /* filter:hue-rotate(180deg); */
+  filter:saturate(1%)
+    
+  }
+}
+
+.tegel {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: 280px;
+  margin: 0 auto;
+}
+.pic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* -webkit-animation: fade 24s infinite; */
+  animation: fade 24s infinite;
+}
+#pic1 {
+  animation-delay: 0s;
+  background-image: url('img/tegel12.jpg');
+}
+#pic2 {
+  background-image: url('img/tegel13.jpg');
+  animation-delay: 4s;
+}
+#pic3 {
+  background-image: url('img/tegel14.jpg');
+  animation-delay: 8s;
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  34% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  34% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
 .about {
   padding: 0.33em;
 }

@@ -62,7 +62,7 @@
                 <h1>
                     Painting for the Brain
                 </h1>
-                <h2>Philsophy of the arts in the age of computer science</h2>
+                <h2>Philosophy of the arts in the age of computer science</h2>
             
             </header>
             <div class="quote-wrapper">
@@ -160,19 +160,47 @@
                 </div>
                
             </section>
-            <!-- <div class="scroll-Bg">
-                <h3>About</h3>
-            </div> -->
-            
+
+            <section class="examples">
+              <article class="example">
+                <img src="assets/img/2009-semantic space 1.jpg" alt="Artwork semantic space #1" data-example="1">
+                <p>
+                  <span>semantic space</span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ex libero voluptatem tempore obcaecati ab cupiditate et numquam perspiciatis dignissimos. Quod, consequuntur commodi.
+                  <button id="example-action">Change</button>
+                </p>
+              </article>
+              <article class="example">
+                <img src="assets/img/2009-semantic space 2.jpg" alt="Artwork semantic space #2">
+                
+         
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ex libero voluptatem tempore obcaecati ab cupiditate et numquam perspiciatis dignissimos. Quod, consequuntur commodi.
+                  
+                </p>
+              </article>
+              <article class="example">
+                <img src="assets/img/2009-semantic space 3.jpg" alt="Artwork semantic space #3">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ex libero voluptatem tempore obcaecati ab cupiditate et numquam perspiciatis dignissimos. Quod, consequuntur commodi.
+
+                </p>
+              </article>
+              <div class='tegel'>
+                <div class='pic' id='pic3' />
+                <div class='pic' id='pic2' />
+                <div class='pic' id='pic1' />
+              </div>
+            </section>
+           
 		</main>
 
         <script>
-        new Newsletter({ 
-            type: 'scroll', // popup | scroll | static 
-            color: 'blue',
-            title: 'Subscribe To Our Newsletter',
-            trigger_position: 200 // How far down in pixels until the popup is triggered
-        });
+          const action = document.querySelector("#example-action")
+          const ex1 = document.querySelector("[data-example='1']")
+          action.addEventListener("click", (e) => {
+            ex1.classList.toggle("ex1")
+          })
 
         const navBtn = document.querySelector("#menu-btn");
 const nav = document.querySelector("nav");
