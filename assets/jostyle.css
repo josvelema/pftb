@@ -659,7 +659,7 @@ blockquote span {
   .main-header h2 {
     font-size: 1.65rem
   }
-  /* .main-header h2 {
+  /* .main-header h2 {v
     font-size: 2.2rem;
   } */
 }
@@ -750,36 +750,89 @@ text-align: center;
 
 }
 
-/* >examples
+/* >examples explore
 *
 *
 * ----------------------
 */
 
-.examples {
+.explore {
   display: grid;
 
   gap: 1em;
   place-items: center;
 
-  margin-bottom: 2em;
+  margin-block: 2em;
 }
 
-.examples article {
+.explore article {
   width: 100%;
   height: 100%;
+  padding: 0.5em
+}
+
+.explore article header {
+  text-align: center;
+}
+
+.explore article header h3 {
+  color: hsla(0, 0%, 0%, 0.8);
+  margin-top: 0.33em;
+}
+
+.pareidolia,
+.leo{
+  display: flex;
+  justify-content: center;
+  /* background-image: linear-gradient(to bottom,rgba(233,233,233,0.73),rgba(233,233,233,0.73)), url("../assets/img/Floortile images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+
+  padding-bottom: 0.5em;
+}
+
+.leo {
+  flex-direction: column;
+  align-items: center;
+}
+
+.pareidolia p,
+.leo p,
+.semantic-container p,
+.brain p,
+.cheating p {
+  
+  text-align: justify;
+  padding: 0.33em;
+  align-self: center;
+  max-width: 66ch;
+  margin-inline: auto;
+}
+
+.tile-wrap {
+  display: grid;
+   grid-template-columns: repeat(2, minmax(25%, 1fr));
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25em;
+  width: 100%;
+  border-bottom: 1px solid #5555;
+  padding-bottom: 0.5em;
 
 }
 
+.tile-wrap img {
+  width: 100%;
+  margin: 0;
+  /* margin: 0.25em; */
+  box-shadow: 0px 2px 3px 1px #5555;
+  border-radius: 3px;
+  
+}
 
-.pareidolia {
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(to bottom,rgba(233,233,233,0.73),rgba(233,233,233,0.73)), url("../assets/img/Floortile images.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #fff;
+.leo img {
+  width: 90%;
+  object-fit: contain;
 }
 
 
@@ -790,27 +843,7 @@ text-align: center;
   align-items: center;
 }
 
-.semantic-container p {
-  max-width: 55ch;
-}
 
-
-
-
-
-
-.pareidolia p  {
-  /* width: min(100%,30ch); */
-  padding: 0.33em;
-  align-self: center;
-  max-width: 55ch;
-}
-
-
-.example img {
-  width: 33ch;
-  object-fit: contain;
-}
 
 
 
@@ -843,14 +876,19 @@ text-align: center;
   max-height: 500px;
   width: auto;
 }
+
+.semantic-2 p {
+  max-width: 33ch;
+}
 @media (max-width: 1228px ) {
   
 .semantic-wrapper img {
-  width: 25ch;
+  width: 20ch;
 }
   
 }
-@media (max-width: 660px ) {
+
+@media (max-width: 880px ) {
   
 .semantic-wrapper img {
   width: 15ch;
@@ -858,20 +896,52 @@ text-align: center;
   .semantic-2 { 
     flex-direction: column;
   }
+
+  .semantic-2 p {
+    max-width: 60ch;
+  }
+
+  .brain-img {
+    flex-direction: column;
+  }
+
+}
+@media (max-width: 420px ) {
+  
+  .semantic-wrapper img {
+    width: 13ch;
+  }
+ 
+  
+  }
+.brain-img {
+  background-color: #fff;
+  border: 1px solid #5555;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1em;
+
 }
 
-.semantic-2 p {
-  width: 33ch;
+.brain img,
+.cheating img {
+  width: calc(50% - 0.5em);
+  object-fit: contain;
 }
 
-.brain p {
-  width: min(100%,50ch);
-    
+.cheating img {
+  width: calc(50% - 0.5em);
+  object-fit: contain;
 }
 
-.brain img {
-  width: 100%;
-}
+
+/* biography
+*
+*
+* -----------------------------
+*/
 
 
 .about {

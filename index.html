@@ -47,6 +47,9 @@
               <a href="#examples" class="nav-link" role="menuitem">Biography</a>
             </li> -->
             <li role="none">
+              <a href="explore.html" class="nav-link" role="menuitem">Explore</a>
+            </li>
+            <li role="none">
               <a href="bio.html" class="nav-link" role="menuitem">Biography</a>
             </li>
           </ul>
@@ -120,14 +123,26 @@
                                 </li>
                                 <li>Courses in preparation: creativity, philosophy for painters, emergent painting and pareidolia, new techniques for acrylic paint, the religious dimension of painting and much more.</li>
                               </ul>
-                              Want to know more?
+
+                              <div class="right" id="newsletter">
+                                <div class="newsletter"></div>
+                                <script src="newsletter.js"></script>
+                                <script>
+                                new Newsletter({
+                                    type: 'static', // popup | scroll | static
+                                    container: document.querySelector('.newsletter'),
+                                    color: 'blue'
+                                });
+                                </script>
+                            </>
+                        </div>
+
+
+
+                              <!-- Want to know more?
                               <br>
-                               <a href="#newsletter" class="text-inverse">Subscribe to our newsletter!</a>
-                                <p>
-                                </p>
-               
-                                  <p></p>
-                              </p>
+                               <a href="#newsletter" class="text-inverse">Subscribe to our newsletter!</a> -->
+                    
                             </div>
                         
                         
@@ -146,22 +161,11 @@
                         </p>
                         </blockquote> -->
                     
-                    <aside class="right" id="newsletter">
-                        <div class="newsletter"></div>
-                        <script src="newsletter.js"></script>
-                        <script>
-                        new Newsletter({
-                            type: 'static', // popup | scroll | static
-                            container: document.querySelector('.newsletter'),
-                            color: 'blue'
-                        });
-                        </script>
-                    </aside>
-                </div>
+      
                
             </section>
 
-            <section class="examples">
+            <!-- <section class="examples">
 
               <article class="pareidolia">
                 <p>Our brain is eager to see meaningful images, even if they do not exist, as when we look to the clouds, at rock formations or at floor tiles of the bathroom. During the ages artists have used these techniques to stimulate their creativity. These romantic images emerged when I was staring at a floor tile in our room during long winter evenings (see animation). Using information theory one can understand how and why this works for our brain and how you can use it to develop your own creativity. </p>
@@ -204,7 +208,7 @@
             </article>
 
 
-            </section>
+            </section> -->
 		</main>
 
         <script>
