@@ -6,8 +6,8 @@ class Newsletter {
             container: null,
             php_file_url: 'subscribe.php',
             type: 'static',
-            title: 'Subscribe To Newsletter',
-            content: 'Join our subscribers list to get the latest news, updates, and specials offers directly in your inbox.',
+            title: 'Subscribe to our newsletter',
+            content: 'Join our subscribers list to get the latest news and updates about books, workshop and more.',
             trigger_position: 200,
             width: null,
             height: null
