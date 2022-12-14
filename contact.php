@@ -22,7 +22,7 @@ $mail = new PHPMailer(true);
 try {
     $pdo = new PDO('mysql:host=' . db_host . ';dbname=' . db_name . ';charset=' . db_charset, db_user, db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connected!!!";
+    
 } catch (PDOException $exception) {
     // If there is an error with the connection, stop the script and display the error.
     exit('Failed to connect to database!');
@@ -119,7 +119,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['ca
             // Send mail
             $mail->send();
             // Output success message
-            echo '{"success":"<h2>Thank you for contacting us!/h2><p>We will respond to you as soon as possible!</p>"}';
+            echo '{"success":"<h2>Thank you for contacting us!</h2><p>We will respond to you as soon as possible!</p>"}';
         } catch (Exception $e) {
             // Output error message
             $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;

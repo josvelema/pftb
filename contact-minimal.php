@@ -71,7 +71,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['message'], $_POST['subject'])
             // Send mail
             $mail->send();
             // Output success message
-            echo '{"success":"<h2>Thank you for contacting us!/h2><p>We will respond to you as soon as possible!</p>"}';
+            echo '{"success":"<h2>Thank you for contacting us!</h2><p>We will respond to you as soon as possible!</p>"}';
         } catch (Exception $e) {
             // Output error message
             $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
