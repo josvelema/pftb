@@ -24,7 +24,7 @@
 
 --green-old: hsl(160, 36%, 61%);
 
---green-dark: hsl(158, 90%, 18%);
+--green-dark: hsl(158, 95%, 20%);
 --green-hover: hsl(158, 87%, 26%);
 --green-yellow: hsl(67, 89%, 45%);
 --green-yellow-white: hsl(50, 25%, 93%);
@@ -364,7 +364,7 @@ a:focus,
 a:focus-visible
 
  {
-  color: #fff;
+  color: var(--green-hover);
 }
 
 .nav-links a:hover,
@@ -508,7 +508,7 @@ h3 {
 .hero-grid,
 .reviews {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(55ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50ch, 1fr));
   grid-template-rows: 1fr 1fr;
   gap: 1em;
   place-items: center;
@@ -521,13 +521,14 @@ h3 {
   font-size: 1.75rem;
 }
 
-.previews article {
+/* .previews article {
   background-color: transparent;
-}
+} */
 
 .previews h3 {
 margin: 0 auto;
 text-align: center;
+padding: 1.5em;
 }
 
 .previews  {
@@ -541,6 +542,8 @@ text-align: center;
 margin-top: 0.5em;
   width: 90%;
   max-width: 400px;
+  border-radius: 3px;
+  box-shadow: var(--box-shadow-1);
 }
 
 .introduction {
@@ -847,9 +850,15 @@ text-align: center;
   text-align: center;
 }
 
+.explore h2 {
+  text-shadow: 1px 1px 1px #f0f0f0;
+}
+
 .explore article header h3 {
-  color: hsla(0, 0%, 0%, 0.8);
-  margin-top: 0.33em;
+	color: hsla(0, 0%, 0%, 0.8);
+	margin-top: 0.33em;
+	max-width: 40ch;
+	margin-inline: auto;
 }
 
 .pareidolia,
@@ -1025,7 +1034,27 @@ text-align: center;
 *
 * -----------------------------
 */
+.about-header {
+  margin-top: 2em;
 
+}
+
+
+
+.about-header img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-1);
+  
+}
+
+.about-header h2 {
+
+margin: 0;
+padding: 0;
+}
 
 .about {
   padding: 0.33em;
