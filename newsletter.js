@@ -155,6 +155,7 @@ class Newsletter {
                 body: new FormData(form)
             }).then(response => response.text()).then(data => {
                 this.container.querySelector('.newsletter-msg').innerHTML = data;
+                this.container.querySelector('.newsletter-msg').style.display = 'block';
                 this.container.querySelector('form button').innerHTML = buttonText;
                 this.container.querySelector('form button').disabled = false;
             });

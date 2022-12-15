@@ -1,70 +1,5 @@
-* {
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: #FFFFFF;
-  margin: 0;
-}
-
-.navtop {
-  background-color: #394557;
-  height: 60px;
-  width: 100%;
-  border: 0;
-}
-
-.navtop div {
-  display: flex;
-  margin: 0 auto;
-  width: 600px;
-  height: 100%;
-}
-
-.navtop div h1, .navtop div a {
-  display: inline-flex;
-  align-items: center;
-}
-
-.navtop div h1 {
-  flex: 1;
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-  color: #ebecee;
-  font-weight: normal;
-}
-
-.navtop div a {
-  padding: 0 20px;
-  text-decoration: none;
-  color: #c4c7cd;
-  font-weight: 700;
-}
-
-.navtop div a i {
-  padding: 2px 8px 0 0;
-}
-
-.navtop div a:hover {
-  color: #ebecee;
-}
-
-.content {
-  width: 600px;
-  margin: 0 auto;
-}
-
-.content h2 {
-  margin: 0;
-  padding: 25px 0;
-  font-size: 22px;
-  border-bottom: 1px solid #ebebeb;
-  color: #666666;
+article * + * {
+  margin: unset;
 }
 
 .contact-form {
@@ -229,38 +164,43 @@ body {
   padding-bottom: 10px;
   font-weight: 600;
   font-size: 14px;
-  color: #676869;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .contact-form label .required {
-  color: #d13333;
+  color: hsl(12, 63%, 51%);
 }
 
 .contact-form .btn {
   display: inline-block;
+  width: 150px;
   text-decoration: none;
   text-align: center;
   border: none;
   padding: 10px 15px;
-  background-color: #4f83be;
+  background-color: var(--green-dark);
   color: #fff;
   cursor: pointer;
   margin-right: 5px;
 }
 
-.contact-form .btn:hover {
-  background-color: #4276b2;
+.contact-form .btn:hover, 
+.contact-form .btn:focus, 
+.contact-form .btn:focus-visible {
+  background-color: var(--green-hover);
+  color: #fff;
 }
 
 .contact-form .btn.btn-secondary {
-  background-color: #be4f4f;
+  background-color: hsl(12, 63%, 51%);
+  font-size: 1.5rem;
 }
 
 .contact-form .btn.btn-secondary:hover {
-  background-color: #b24242;
+  background-color: hsl(12, 63%, 51%);
 }
 
-.contact-form .form-upload {
+/* .contact-form .form-upload {
   display: flex;
 }
 
@@ -312,13 +252,27 @@ body {
 .contact-form .form-upload .file i {
   font-size: 30px;
   color: #dde0e3;
-}
+} */
 
 .contact-form .form-element {
   display: flex;
   position: relative;
   height: 50px;
   align-items: center;
+  
+}
+
+.contact-form .form-element input,
+.contact-form .form-element select,
+.contact-form .form-element textarea,
+.contact-form .form-element button {
+  border-radius: 8px;
+  outline: none;
+  margin: 0 auto;
+}
+.captcha-img { 
+  
+  margin: 0 auto 0.5em;
 }
 
 .contact-form .form-element input:focus,
@@ -331,12 +285,15 @@ body {
 .contact-form .form-element input, .contact-form .form-element select, .contact-form .form-element textarea {
   padding: 8px 12px;
   border: 1px solid #dde0e3;
-  width: 100%;
+  width: 90%;
   height: 100%;
+ 
 }
 
 .contact-form .form-element input:focus, .contact-form .form-element select:focus, .contact-form .form-element textarea:focus {
   border: 1px solid #c2c4c9;
+  outline: 1px solid var(--green-dark);
+  outline-offset: 3px;
 }
 
 .contact-form .form-element input::placeholder, .contact-form .form-element select::placeholder, .contact-form .form-element textarea::placeholder {
@@ -357,18 +314,19 @@ body {
   pointer-events: none;
   text-align: center;
   width: 50px;
+  left: calc(2.2vw + 1.3rem);
 }
 
 .contact-form .form-element i.active {
-  color: #337ad1;
+  color: var(--green-dark);
 }
 
 .contact-form .form-element.error i {
-  color: #d13333;
+  color: hsl(12, 63%, 51%);
 }
 
 .contact-form .form-element.error input, .contact-form .form-element.error select, .contact-form .form-element.error textarea {
-  border: 1px solid #d13333;
+  border: 1px solid hsl(12, 63%, 51%);
 }
 
 .contact-form .form-element.size-xl {
@@ -376,13 +334,13 @@ body {
 }
 
 .contact-form .validation-error {
-  color: #d13333;
+  color: hsl(12, 63%, 51%);
   margin: 0;
   padding-top: 5px;
 }
 
 .contact-form .errors {
-  color: #d13333;
+  color: hsl(12, 63%, 51%);
   margin: 0;
   padding: 15px 0;
 }

@@ -22,12 +22,15 @@
     <meta property="og:description" content="Philosophy of the arts in the age of computer science." />
     <!-- <meta property="og:video" content="http://www.artrestaurantmanezinho.com/assets/mp4/main.mp4" /> -->
     <meta name="robots" content="index, follow" />
-    <title>Painting for the brain - Biography</title>
+    <title>Painting for the brain - Pre-order / Contact</title>
+	
 
 		<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+        <link href="formstyle.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="assets/jostyle.css">
+
 	</head>
 	<body>
 
@@ -53,7 +56,7 @@
           <ul class="nav-links" id="menu" role="menubar">
 
             <li role="none">
-              <a href="/" class="nav-link" role="menuitem"> Home</a>
+              <a href="/" class="nav-link" role="menuitem" aria-current="page"> Home</a>
             </li>
             <li role="none">
               <a href="books.html" class="nav-link" role="menuitem">Books</a>
@@ -69,7 +72,7 @@
               <a href="explore.html" class="nav-link" role="menuitem">Explore</a>
             </li>
             <li role="none">
-              <a href="bio.html" class="nav-link" role="menuitem"  aria-current="page">Biography</a>
+              <a href="bio.html" class="nav-link" role="menuitem">Biography</a>
             </li>
           </ul>
 
@@ -93,54 +96,93 @@
                 </blockquote>
             </div>
         </div>
-        <main>
-          <header class="about-header container">
-            <img src="assets/img/pftbPieterBio.jpg" alt="Pieter Adriaans in his Atelier">
-            <h2 style="text-align: center; margin-block: 1em;">Biography Pieter Adriaans </h2>
-          </header>
-          <section class="container">
-            <article class="about">
-                <p class="about-introduction">
-                    Creating a balance between art, science and business, that has been the lifelong ambition of philosopher/painter/entrepreneur Pieter Adriaans. Art, because it is, apart from love, one of the richest fulfillments life can offer, science because we have an innate urge to understand the world around us, and business because one needs a sound basis to chase one’s dreams.
-                </p>
-          
-                <div class="about-columns">
-          
-                   
-                    <p>
-                        Pieter Willem Adriaans (1955) grew up in Holland in the sixties and in his early teens got caught in the turmoil of the emerging counterculture that raged through the complacent Dutch society of the time. This experience is documented in his work and has been a continuous inspiration ever since. At the age of fourteen he decided that enough was enough, the fun was over, and it was time to get proper schooling and seriously work on his skills as an artist. One lucky day, a year later, he met his future spouse Rini and asked her to marry him that same evening. They have been together for more than fifty years. 
-                    </p>
-          
-                    <p>
-                      Forsaking official art school, because it had little to offer for his ambitions as a figurative painter, he studied analytical philosophy and (some) mathematics for seven years at Leiden University. 
-                    </p>
-                    <p>
-                        <!-- Forsaking official art school, because it had little to offer for his ambitions as a figurative painter, he studied analytical philosophy and (some) mathematics for seven years at Leiden University. -->
-          
-                        He started a career in the software business and founded his own company Syllogic with partner Dolf Zantinge in the early nineties. At the same time, he wrote a thesis on machine learning and obtained a PhD in theoretical computer science at the University of Amsterdam. Syllogic developed into one of the leading companies in Artificial Intelligence and data mining in the world and was sold to Perot systems by the end of the decade. Based on these achievements, Pieter was offered a chair in Artificial Intelligence at the University of Amsterdam, which he held until his retirement from university in 2021. 
-                    </p>
-          
-                    <p>
-                        At the turn of the century while on a solo transatlantic crossing in his yacht the Syllogic Sailing lab, Pieter was caught in a fierce and challenging storm that forced him to seek refuge in the port of Horta in the Azores. Both he and Rini, who flew into Horta to assist him with the repairs, fell in love with the islands and decided to buy a house in the village of Manadas on the island of São Jorge. The isolated society of the islands, with its rich history and astonishing nature has been a constant inspiration ever since. 
-                    </p>
-          
-                    <p>
-                        Over the next two decades Pieter honed his skills as a painter and a philosopher. He became one of the world’s leading experts on philosophy of information. He used information theory to study human cognition and creativity. In his studio in Santo Antonio he conducted extensive research into innovative techniques for drawing and painting. In 2013 he published a book ‘Painting for the brain’ in Dutch that explained his findings for a lay audience. 
-                    </p>
-                </div>
-                
-                    <div class="about-footer">
-                        <p>Currently, Pieter and Rini continue to live on São Jorge Island where they run the <a href="http://www.artrestaurantmanezinho.com" class="text-inverse" target="_blank">Art Restaurant Manezinho</a>, and a cultural center, <a href="https://www.facebook.com/AtelierdeKaasfabriek" target="_blank" class="text-inverse">Atelier de Kaasfabriek</a>. Here Pieter keeps the dream of balance between science, art and business alive: </p>
-                        <p>“In the morning I am a philosopher, in the afternoon a painter and in the evening you can often find me singing and playing my guitar in Manezinho.”</p>     
+		<main id="order">
+      <section class="container--sm">
+        <img src="assets/img/Painting-for-the-Brain-cover.jpg" alt="Painting for the brain book cover" class="order-img">
+        <h2>Contact / Pre-order Form</h2>
+
+        <article>
+          <form class="contact-form" action="" method="post" enctype="multipart/form-data" novalidate>
+              <p class="col-12 pad-y-2 pad-l-2">Please fill in your details</p>
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <label for="first_name"><span class="required">*</span> First Name</label>
+                  <div class="form-element">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" pattern="^[a-zA-Z]+" title="First name must contain only characters!" required>
+                  </div>
+              </div>
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <label for="last_name"><span class="required">*</span> Last Name</label>
+                  <div class="form-element">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" pattern="^[a-zA-Z]+" title="Last name must contain only characters!" required>
+                  </div>
+              </div>
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <label for="email"><span class="required">*</span> Email</label>
+                  <div class="form-element">
+                      <i class="fas fa-envelope"></i>
+                      <input type="email" id="email" name="email" placeholder="Enter your email" title="Please enter a valid email address!" required>
+                  </div>
+              </div>
+          <!--
+              <div class="col-12 pad-y-2">
+                  <label for="category"><span class="required">*</span> Category</label>
+                  <div class="form-element">
+                      <select id="category" name="category" placeholder="Category" title="Please select a category!" required>
+                          <option value="" disabled selected>Choose a category</option>
+                          <option value="general">General</option>
+                          <option value="technical">Technical</option>
+                          <option value="other">Other</option>
+                      </select>
+                  </div>
+              </div> -->
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <label for="subject"><span class="required">*</span> Subject</label>
+                  <div class="form-element">
+                      <input type="text" id="subject" name="subject" placeholder="Enter your subject" title="Please enter a subject!" value="I would like to reserve a copy of the book 'painting for the brain'" required>
+                  </div>
+              </div>
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <label for="message"><span class="required">*</span> Message</label>
+                  <div class="form-element size-xl">
+                      <textarea id="message" name="message" placeholder="Your message ..." title="Please enter your message!" required></textarea>
+                  </div>
+              </div>
+          <!--
+              <div class="col-12 pad-y-2">
+                  <label for="files">Attach Files</label>
+                  <div class="form-upload" data-name="files[]" data-accept="">
+                      <a href="#" class="upload-btn"></a>
+                  </div>
+              </div> -->
+              <div class="col-12 pad-y-2 pad-l-2 pad-r-2">
+                <div class="form-element"><img src="captcha.php" width="200" height="75" class="captcha-img"></div>
+                  <div class="form-element">
+                      <input type="text" id="captcha" name="captcha" placeholder="Enter captcha code" title="Please enter the captcha code!" required>
                     </div>
-          
-            </article>
-          </section>
-        
-        </main>
-        
-        <script>
-          
+              </div>
+              <div class="col-12 pad-y-2 pad-l-2">
+                  <button type="submit" class="btn">Submit</button>
+              
+              <div class="col-12 ">
+                  
+                  <a href="#" class="btn btn-secondary clear-form">Clear</a>
+              </div>
+              <p class="col-12 errors"></p>
+          </form>
+        </article>
+
+    </section>
+
+		</main>
+
+    <script src="ContactForm.js"></script>
+    <script>
+    new ContactForm({
+        container: document.querySelector(".contact-form"),
+
+    });
   
 
         const navBtn = document.querySelector("#menu-btn");
