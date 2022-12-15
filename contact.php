@@ -28,14 +28,14 @@ try {
     exit('Failed to connect to database!');
 }
 // Check if user submitted the contact form
-if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['category'], $_POST['message'], $_POST['subject'], $_POST['captcha'])) {
+if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['message'], $_POST['subject'], $_POST['captcha'])) {
     // Errors array
     $errors = [];
     // Extra values to store in the database
     $extra = [
         'first_name' => $_POST['first_name'],
         'last_name' => $_POST['last_name'],
-        'category' => $_POST['category'],
+       
         'attachments' => ''
     ];
     // Form validation
