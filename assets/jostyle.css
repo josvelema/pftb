@@ -1128,6 +1128,17 @@ letter-spacing: 1px;
   text-align: justify;
 }
 
+.thankYou-article {
+  margin-block: 2em;
+  padding: 0.25em;
+}
+
+.thankYou {
+  padding: 1em;
+  text-align: center;
+}
+
+
 
 /* ---------- shack style ------------- 
 *
