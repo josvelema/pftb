@@ -119,7 +119,10 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['me
             // Send mail
             $mail->send();
             // Output success message
-            echo `{"success":"<div class='thankYou'><h2>Thank you for contacting us!</h2><p>We will respond to you as soon as possible!</p><a href='/' class='text-inverse'>Back to main page</a></div>"}`;
+
+            $msg_success = "<div class='thankYou'><h2>Thank you for contacting us!</h2><p>We will respond to you as soon as possible!</p><a href='/' class='text-inverse'>Back to main page</a></div>";
+            
+            echo '{"success":"' . $msg_success . '"}';
         } catch (Exception $e) {
             // Output error message
             $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
