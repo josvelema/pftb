@@ -256,51 +256,12 @@ nav.active .nav-link[aria-current="page"] {
 }
 
 
-
-@media (min-width: 768px) {
-  .btn--menu {
-    display: none;
-  }
-
-  .nav-links {
-    position: static;
-    transform: translate3d(0,0,0);
-    flex-direction: row;
-    border: none;
-    z-index: 0;
-    padding: 0;
-    inset: 0;
-    background-color: transparent;
-  }
-
-  li[role="none"], .nav-link {
-    width: initial;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-  background-image: var(--bkg-soft);
-
-  }
-}
-
 main {
   /* padding-top: var(--layout-spacing); */
 
   gap: clamp(4rem, 1.45454537rem + 11.636364vw, 8rem);
   position: relative;
 }
-
-@media (min-width: 1038px) {
-  main {
-    width: var(--container-max);
-  }
-
-  
-}
-
 footer {
   margin-top: auto;
   padding-top: var(--layout-spacing);
@@ -697,73 +658,6 @@ blockquote span {
   margin-top: 1em;
 }
 
-@media (max-width: 1101px) {
-  .flex-main {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-
-  .bg-wrapper {
-    background-size: contain;
-    background-position: unset;
-    height: unset;
-    margin-bottom: unset;
-  }
-
-  .quote-wrapper {
-    padding-bottom: 4px;
-  }
-
-  .main-header h2 {
-    font-size: 2.5rem
-  }
-
-  .pareidolia {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  /* .semantic-wrapper {
-    flex-direction: column;
-  } */
-  .intro-wrap {
-    flex-direction: column;
-  }
-  .intro-wrap-p {
-    max-width: 66ch;
-  }
-  
-}
-@media (max-width: 669px)  {
-  blockquote {
-    font-size: 1.5rem;
-    width: min(100%, 33ch);
-    padding: 20px 15px 12px 12px;
-    box-shadow: var(--box-shadow-1);
-    /* position: absolute; */
-  }
-
-  blockquote::before {
-    font-size: 3.5rem;
-    left: -2px;
-    top: -10px;
-  }
-  .main-header h2 {
-    font-size: 1.65rem
-  }
-  /* .main-header h2 {v
-    font-size: 2.2rem;
-  } */
-}
-
-
-@media (orientation: landscape) {
- .bg-wrapper {
-  height: 60vw;
-  background-size: cover;
- }
-}
 
 .expect {
 	background-image: linear-gradient(to bottom,rgba(233,233,233,0.83),rgba(233,233,233,0.83)), url("../assets/img/pieterGrijs.jpg");
@@ -1015,45 +909,6 @@ text-align: center;
   width: calc(50% - 0.5em);
   object-fit: contain;
 }
-
-
-@media (max-width: 1228px ) {
-  
-  .semantic-wrapper img {
-    width: 20ch;
-  }
-    
-  }
-  
-  @media (max-width: 880px ) {
-    
-  .semantic-wrapper img {
-    width: 15ch;
-  }
-    .semantic-2 { 
-      flex-direction: column;
-    }
-  
-    .semantic-2 p {
-      max-width: 60ch;
-    }
-  
-    .brain-img {
-      flex-direction: column;
-    }
-    .brain img {
-      height: 220px;
-    }
-  
-  }
-  @media (max-width: 420px ) {
-    
-    .semantic-wrapper img {
-      width: 13ch;
-    }
-   
-    
-    }
 
 /* biography
 *
@@ -1562,3 +1417,151 @@ max-width: 66ch;
   opacity: 1;
   transform: translateY(0);
 }
+
+
+
+@media (max-width: 1228px ) {
+  
+  .semantic-wrapper img {
+    width: 20ch;
+  }
+    
+  }
+  
+  @media (max-width: 880px ) {
+    
+  .semantic-wrapper img {
+    width: 15ch;
+  }
+    .semantic-2 { 
+      flex-direction: column;
+    }
+  
+    .semantic-2 p {
+      max-width: 60ch;
+    }
+  
+    .brain-img {
+      flex-direction: column;
+    }
+    .brain img {
+      width: 220px;
+      height: 220px;
+    }
+  
+  }
+  @media (max-width: 420px ) {
+    
+    .semantic-wrapper img {
+      width: 13ch;
+    }
+   
+    
+    }
+
+
+    @media (min-width: 768px) {
+      .btn--menu {
+        display: none;
+      }
+    
+      .nav-links {
+        position: static;
+        transform: translate3d(0,0,0);
+        flex-direction: row;
+        border: none;
+        z-index: 0;
+        padding: 0;
+        inset: 0;
+        background-color: transparent;
+      }
+    
+      li[role="none"], .nav-link {
+        width: initial;
+      }
+    
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+      background-image: var(--bkg-soft);
+    
+      }
+    }
+    
+    
+    @media (min-width: 1038px) {
+      main {
+        width: var(--container-max);
+      }
+      
+      
+    }
+    @media (max-width: 1101px) {
+      .flex-main {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+    
+      .bg-wrapper {
+        background-size: contain;
+        background-position: unset;
+        height: unset;
+        margin-bottom: unset;
+      }
+    
+      .quote-wrapper {
+        padding-bottom: 4px;
+      }
+    
+      .main-header h2 {
+        font-size: 2.5rem
+      }
+    
+      .pareidolia {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      
+      }
+      /* .semantic-wrapper {
+        flex-direction: column;
+      } */
+      .intro-wrap {
+        flex-direction: column;
+      }
+      .intro-wrap-p {
+        max-width: 66ch;
+      }
+      
+    }
+    @media (max-width: 669px)  {
+      blockquote {
+        font-size: 1.5rem;
+        width: min(100%, 33ch);
+        padding: 20px 15px 12px 12px;
+        box-shadow: var(--box-shadow-1);
+        /* position: absolute; */
+      }
+    
+      blockquote::before {
+        font-size: 3.5rem;
+        left: -2px;
+        top: -10px;
+      }
+      .main-header h2 {
+        font-size: 1.65rem
+      }
+      /* .main-header h2 {v
+        font-size: 2.2rem;
+      } */
+    }
+    
+    
+    @media all and (max-width: 820px ) and (orientation: landscape) {
+     .bg-wrapper {
+      height: 60vw;
+      background-size: cover;
+     }
+    }
+    
